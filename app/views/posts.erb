@@ -1,4 +1,13 @@
 <% @posts.reverse.each do |post| %>
   <h1>Name: <%= post.name %></h1>
   <h2>Content: <%= post.content %></h2>
+  <form action="/edit" method="GET">
+    <input type="hidden" name="id" value="<%=post.id%>">
+    <input type="submit" value="Edit Post">
+  </form>
+
+  <form action="/delete" method="POST">
+    <input type="hidden" name="id" value="<%=post.id%>">
+    <input type="submit" value="Delete Post">
+  </form>
 <% end %>
